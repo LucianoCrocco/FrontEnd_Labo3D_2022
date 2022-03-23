@@ -1,0 +1,87 @@
+<!DOCTYPE html><!--Le dice al navegador en la "precompilacion" que este archivo es codigo HTML.-->
+<html lang="es"><!-- La etiqueta html indica el inicio y cierre del codigo HTML. Con la propiedad lang le decimos al navegador el lenguaje de nuestra Web. Por ejemplo si esta en ingles pero escribimos en español el navegador nos va a dar una opción para traducir la pagina. -->
+<head><!-- No es visible para el usuario salvo la etiqueta title. Las etiqueta metas son de metadata, son etiquetas para el navegador y motores de busqueda.-->
+    <meta charset="UTF-8"> <!-- Indica el juego de caracteres que debe interpretar el navegador.-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Es una etiqueta para productos Microsoft.-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- El viewport es la parte visible de nuestra pagina web. Le dice que el viewport sea igual al maximo que permite el dispositivo y que la escala (zoom) sea 1. Tiene que ver con el concepto de responsive.-->
+    <title>Document</title><!-- El titulo que se despliega en la pestaña.-->
+    <link rel="stylesheet" href="./estilos.css">
+</head>
+<body> <!-- Vamos a escribir el codigo que se va a ver.-->
+    
+    <h1 style="background-color: red;">Eso es un encabezado</h1>
+    <p>
+        <b>Negrita</b> <strong>Strong</strong> <i>italica</i> <em>enfasis</em> <span class="span">Etiqueta span</span>
+    </p>
+    <div>Hola mundo</div>
+
+    <h2>Dias de la semana</h2>
+
+    <p style="color: blue;">Parrafo 2</p>
+
+    <ul type="square">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <ol type="I" start="6" reversed>
+        <li>Pera</li>
+        <li>Banana</li>
+        <li>Melon</li>
+        <li>Sandia</li>
+    </ol>
+
+    <dl>
+        <dt>Coffee</dt>
+        <dd>Black hot drink</dd>
+        <dt>Milk</dt>
+        <dd>White cold drink</dd>
+      </dl>
+
+      <table>
+          <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Edad</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>1</td>
+                  <td>Juan</td>
+                  <td>Perez</td>
+                  <td>30</td>
+              </tr>
+              <tr>
+                  <td>2</td>
+                  <td>Ana</td>
+                  <td>Lopez</td>
+                  <td>21</td>
+              </tr>
+              <tr>
+                  <td>3</td>
+                  <td>Jose</td>
+                  <td>Suarez</td>
+                  <td>34</td>
+              </tr>
+              <tr>
+                  <td>4</td>
+                  <td>Maria</td>
+                  <td>Gonzalez</td>
+                  <td>23</td>
+              </tr>
+              <tr>
+                  <td>5</td>
+                  <td>Mario</td>
+                  <td>Torres</td>
+                  <td>27</td>
+              </tr>
+          </tbody>
+      </table>
+</body>
+</html>
