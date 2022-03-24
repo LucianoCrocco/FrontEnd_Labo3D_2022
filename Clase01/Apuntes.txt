@@ -102,3 +102,4 @@ El navegador espera al CSS ya que para renderizar necesita esos estilos que apli
 Por eso al no esperar el JS ponemos el script al final del HTML, ya que debe esperar que se renderice todo antes de aplicar codigo JS.
 
 El DOM es Document Object Model, esto quiere decir que los documentos HTML se organizan en objetos. document.getElementById(""); nos devuelve un puntero al objeto del DOM. Al ser un objeto también nos permite acceder a las propiedades con el operador '.'.
+
