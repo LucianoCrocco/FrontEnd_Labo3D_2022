@@ -1,0 +1,28 @@
+p {
+    color: green;
+}
+
+td, th{
+    border: 1px solid black;
+    text-align: center;
+}
+
+td {
+    /*
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;*/
+    padding: 5px 20px;
+    /*
+    1 valor -> Cuatro puntos cardinales 
+    2 valores -> Arriba/Abajo - Izquierda/Derecha
+    2 valores -> Arriba - Izquierda/Derecha - Abajo
+    4 valores -> Arriba - Derecha - Abajo - Izquierda
+    */
+
+}
+
+table{
+    border-collapse: collapse;
+}
