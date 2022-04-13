@@ -1,0 +1,74 @@
+Clase 4 - Eventos, formularios y HTML
+
+
+Eventos
+
+La propiedad target de los eventos me dice quien fue el emisor del evento.
+
+https://developer.mozilla.org/es/docs/Web/API/Event/bubbles
+            SCREENSHOT
+El esquema de captura es cuando se lanza un evento vamos a ir del body al elemento pasando por todas las capas de por medio y cuando se lanza vamos a ir desde ese elemento hacia el body pasando por las capas intermedias haciendo una fase de burbuja.
+
+Esquema de captura -> Del elemento mas anidado al menos anidado
+Esquema de burbuja -> Del elemento padre al elemento mas anidado.
+
+El addEventListener en realidad tiene 3 parametros. La accion, el callback y el tercer parametro es un booleano.
+Si quiero capturar en fase de captura agrego true al primer parametro y en fase de burbuja lo dejo como esta, o sea, false.
+
+Puedo evitar la propagacion del evento a traves de otros elementos con la funcion e.stopPropagation();
+
+Podemos registrar eventos tanto como el addEventListener como con las propiedades on"accion".
+
+Podemos delegar los eventos. Con el objeto global window podemos capturar un evento y con la propiedad target del evento podemos verificar donde se realizo. Para saber donde se realizo vamos a utilizar el metodo matches. Por defecto recibe un CSS.
+Ejemplo:
+window.addEventListener("click", (e) => {
+    if(e.target.matches("#ID")){
+        ACCIONES
+    }
+}); 
+Este metodo rinde muchisimo mas que tener muchos addEventListener de botones. Con estructuras if-else vamos a aplicar la logica segun el id que querramos.
+
+Puedo relacionar un script en el head y que cargue todo el conentido previamente con la propiedad defer. No se va a ejecutar el script hasta que no se cargue el resto de la pagina.
+Tambien puedo utilizar con el objeto window el evento "DOMContentLoaded" u "onload" y encapsular todas los eventos, scripts, fuciones, etc. dentro del evento. 
+
+onACCION -> El boton referenciado accediendo a la propiedad. 
+ACCION -> El boton accediendo a la lista de eventos (addEventListener). 
+Con addEventListener podes agregar y quitar manejadores, en cambio con las propiedades no.
+OnACCION sobreescribe el evento asociado.
+
+
+Formularios
+
+La propiedad action del formulario va a ser la ruta donde enviamos el formulario y method va a ser el metodo con el cual lo vamos a enviar.
+Al trabajar con SPA vamos a enviar formularios sin refrescar ni cargar una nueva pagina.
+
+https://www.w3schools.com/html/html_form_input_types.asp
+Los input por defecto son de texto.
+Para conectar la etiqueta label con el input vamos a poner dentro de la propiedad for="" del label con el id="" del input.
+El comportamiento por defecto del input type submit es enviar el formulario a la URL del action.
+La etiqueta button dentro de un formulario desencadena el evento submit del formulario.
+Es importante que a la hora de enviar informacion todos los campos de input tengan un name="". Con ese name se va a asociar clave:valor con el campo, siendo la clave el name y el valor el value del input. Sin el name no se envia nada.
+Par que un input radio sea excluyente entre si tienen que tener el mismo name.
+
+La informacion de un GET se envia por la URL con una relacion clave:valor, despues del  signo ? va ese clave:valor y se envian los datos visibles por la URL.
+
+Relacion de los metodos de formularios con SQL.
+GET -> Select
+POST -> Create
+PUT -> Update
+Patch -> Update
+Delete -> Delete
+¿Cual es la diferencia entre el PUT y el PATCH? En el Patch modificamos un dato en particular y en el put estamos manteniendo el ID pero cambiamos toda la info guardada ahi
+Esto es conocido como un CRUD (Create, Read, Update, Delete).
+
+Para abortar el comportamiento por defecto del submit vamos a referenciar el formulario, cargar el evento submit y hacer un e.preventDefault();
+Tambien podemos cargar todos los forms con un documen.forms[INDICE] y realizar el mismo procedimiento que si lo estuvieramos referenciando. El indice se va a cargar de arriba hacia abajo comenzando por el 0.
+El e.preventDefault() para el submit de un formulario nos permite prevenir que se cargue una nueva pagina, validar los datos con el servidor, etc.
+La idea es que cuando construyamos nuestra SPA manejarnos en la pagina actual. A traves de JS leer los elementos del formulario y hacer el submit de igual manera con peticiones AJAX.
+
+Un iframe es una pagina web completa embebida en la nuestra
+
+Herramientas a conocer:
+Los microdatos son darle significado a los elementos que tenemos en una pagina.
+https://schema.org/
+https://ogp.me/
