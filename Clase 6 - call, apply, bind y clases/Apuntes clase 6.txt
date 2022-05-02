@@ -1,0 +1,47 @@
+Call, apply y bind
+https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Function/bind
+https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Function/call
+https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Function/apply
+
+La funcion call va ejecutar una funcion/metodo y por parametros le vamos a pasar la referencias del objeto actual que vamos a ejecutar. O sea, el this es el objeto que le pasamos. Para funcionar la funcion debe ser declarada expresada o declarada. Con metodos simplemente llamamos al metodo.
+No funciona con arrow functions ya que no conocen el contexto this. Documentacion: https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+El apply funciona de igual manera pero su segundo parametro en un array con n cantidad de parametros. call separamos los parametros por coma.
+En ambos casos deben coincidir los atributos para que pueda funcionar el this.atributo.
+Ejemplos:
+    saludar: function() {
+        console.log(`Hola soy ${this.nombre} y tengo ${this.edad} años`);
+
+      const miFuncion = persona.saludar;
+      miFuncion.call(extraterrestre);
+
+
+  function Animal(tipo, edad, sexo, hambre){
+      this.tipo = tipo;
+      this.edad = edad;
+      this.sexo = sexo;
+      this.hambre = hambre;
+  }
+
+  function Mascota(nombre, tipo, edad, sexo, hambre){
+      this.nombre = nombre;
+
+      Animal.call(this, tipo, edad, sexo, hambre);//Hago un call, le paso mi objeto actual, o sea this, y le envio los parametros.
+  }
+
+FUNCION.call(REFERENCIA, PARAMETRO1, PARAMETRO2, ETC);
+FUNCION.apply(REFERENCIA, [N CANTIDAD DE PARAMETROS]);
+
+bind me devuelve la funcion pero con el scope(this) pegado, haciendo imposible que la funcion vuelva a tomar otro contexto.
+const funcionClonadaConScope = miFuncion.bind(VARIABLE/SCOPE ACUTAL, "PARAMETROS"); -> Puedo asociarle el contexto y el parametro, o solo el contexto y luego llamar el parametro
+funcionClonadaConScope(PARAMETROS); -> Ejecuto la funcion bindeada a la variable
+
+Estas 3 funciones nos permiten utilizar metodos/funciones en objetos totalmente diferentes que compartan los atributos llamados en el metodo/funcion, ya que "this" va a ser el objeto actual.
+React utilizan este tipo de referencias y funciones para hacer mutables los hooks. Asi logramos Functional Components.
+
+Object.setPrototypeOf(CAMBIAR.prototype, PROTOTIPO A ASIGNARLE A CAMBIAR.prototype) Yo le voy a setear el prototipo de. Le puedo decir a X que tenga el prototipo de Y. Asi puedo tener mas metodos
+Ejemplo: Object.setPrototypeOf(Mascota, Animal);
+
+Para evitar tener que setear un prototype de una funcion a otra tenemos las clases. Las clases en JS estan desde 2015 y se denomina azucar sintactico. Tiene la palabra reservada class, constructor, get, set, static, extendes, super, base, etc.
+Un atributo con el # adelante indica que es privado, asi nos evitamos utilizar el '_'. Debemos declarar el atributo fuera del scope del constructor y de esta manera no es accesible fuera de su clase, obligandonos a utilizar set y get. Sin embargo no es muy utilizado.
+
+Con el type="module" en HTML habilito a un archivo JS a que pueda importar varios archivos dentro de si mismo. Es importante tener la extension del archivo a la hora de hacer un import, no funciona como en React.

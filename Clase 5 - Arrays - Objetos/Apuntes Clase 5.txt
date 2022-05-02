@@ -1,0 +1,85 @@
+Clase 5 - Arrays - Objetos - Herencia - Con maneja los objetos JS - Clases
+
+JS tiene una orientacion a objetos con prototipos.
+
+https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array
+https://developer.mozilla.org/es/docs/Learn/JavaScript/Objects/Object_prototypes
+https://code.tutsplus.com/es/tutorials/how-to-use-map-filter-reduce-in-javascript--cms-26209
+
+Prototype es algo que tienen los objetos en JavaScript. El Prototype es un objeto.
+
+const vec = [1,2,3,4,]; -> Lista
+const vec = [23, 'Juan', false]; -> Tupla
+const vec = new Set(); -> Set
+La listas son mutables, a diferencia de las listas, las Tuplas NO SON modificables, es inmutable.
+Un set no mantiene un orden (no existe un indice), no tiene elementos duplicados. No es posible modificar los elementos almacenados, pero si eliminar o agregar
+
+Manera de copiar arrays:
+const vec = [...vec1];
+const vec = [...vec1, ...vec2];
+const vec = vec1.concat();
+const vec = vec1.concat(vec2);
+
+https://stackoverflow.com/questions/29285897/what-is-the-difference-between-for-in-and-for-of-statements
+for of => Devuelve el valor del index
+for in => Es para objetos. Nos devuelve una key y no una value.
+
+Los strings son objetos inmutables. No se pueden modificar.
+
+splice en español significa empalme. Corto un pedazo y lo empalmo.
+https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
+El splice de los array admiten numeros negativos. Si coloco un numero negativo va a comenzar a contar desde el final hacia el principio. Si se pasa del principio se queda en el primer index.
+splice(comienzo-index, cantidad);
+
+El sorting se hace restando el ASCI, si es positivo devuelve 1, igual 0, negativo -1. Cambiando a - b por b - a va a cambiar la disposicion. 
+Numeros:
+vec7.sort((a,b)=>{
+    return a - b;
+})
+Caracteres / strings
+items.sort(function (a, b) {
+  if (a.name > b.name) {
+    return 1;
+  }
+  if (a.name < b.name) {
+    return -1;
+  }
+  // a must be equal to b
+  return 0;
+});
+
+El foreach a diferencia de C# permite modificar un array en plena ejecucion
+
+truly - falsy
+Es cuando aparece algo solo en una condicion y tengo que evaluarlo.
+if("Juan") -> truly | Todo lo que no sea 0
+if("") -> falsy. | Todo lo que sea 0. Cadenas vacias, null, undefined son falsy en JS.
+
+
+Objetos
+const obj = new Object();
+const obj = {};
+A los objetos en JS puedo agregarle propiedades fuera de su constructor con el operador '.'.
+
+Copiar un objeto a otra referencia: const p3 = Object.assign({}, p1) o const p3 = {}; Object.assign(p3, p1); Assign recorre las key:value y las asigna al target. 
+El spreadOperator cumple la misma funcion.
+
+La nomencaltura de corchetes me permitie acceder a un valor a través de una key.
+obj["KEY"];
+
+Un objeto creado a través de una funcion constructora va a cambiar las propiedades del Prototype.
+
+Puedo clonar un objeto de manera correcta generando dos referencias distintas de varias maneras, una de ellas es con JSON. const clone = JSON.parse(JSON.stringify(miObjeto)); Otra manera es con el spread operator. const clone = {...original}; Sin embargo no se relaciona con una funcion constructora ya que es on the fly.
+
+Los objetos "on the fly" solo comparten las funciones del Prototype, no de la clase.
+
+Desestructuracion de objetos{} y arrays[] como en react. Para los objetos el nombre de la variable debe ser igual que la key/atributo, si utilizo el spread me va a traer todos los key:value. Para los arrays importa la posicion, puedo utilizar el spread operator para traerme los elementos restantes.
+
+{nombre:name} = persona. Con el : le damos un alias al nombre como name.
+
+Por convencion las funciones constructoras comienzan en mayusculas.
+De igual manera como en PHP puedo poner parametros por defecto, todos los parametros de deben llamar y en caso de querer saltear uno uitlizamos undefined.
+
+En teoria con funciones no puedo aplicar encapsulamiento. Por convencion para simular los atributos privados y publicos utilizamos _ para indicar que es privado a otros programadores. Si es publico tal cual el nombre. Otra cosa que se puede hacer para hacer privada una funcion es en vez de utilizar this utilizar una variable let _nombre; Si podemos aplicar encapsulamiento en clases con el # declarando el atributo fuera del constructor como C#.
+
+Podemos personalizar el prototype para que se vinculen funciones comunes entre objetos del mismo tipo. Con esto nos ahorramos que cada objeto declarado tenga cargado en memoria una funcion. Asi logro tenerla en un solo lado y una sola vez. Ejemplo: CLASS/CONSTRUCTOR.prototype.NAME = function (){};
