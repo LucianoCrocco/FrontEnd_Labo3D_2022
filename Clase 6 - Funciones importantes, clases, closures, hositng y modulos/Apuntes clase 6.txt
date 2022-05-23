@@ -44,4 +44,37 @@ Ejemplo: Object.setPrototypeOf(Mascota, Animal);
 Para evitar tener que setear un prototype de una funcion a otra tenemos las clases. Las clases en JS estan desde 2015 y se denomina azucar sintactico. Tiene la palabra reservada class, constructor, get, set, static, extendes, super, base, etc.
 Un atributo con el # adelante indica que es privado, asi nos evitamos utilizar el '_'. Debemos declarar el atributo fuera del scope del constructor y de esta manera no es accesible fuera de su clase, obligandonos a utilizar set y get. Sin embargo no es muy utilizado.
 
+Modulos 
+
 Con el type="module" en HTML habilito a un archivo JS a que pueda importar varios archivos dentro de si mismo. Es importante tener la extension del archivo a la hora de hacer un import, no funciona como en React.
+
+Cuando exportamos sin el default y con el default se exporta un objeto. Si yo no exporto por default debo desestructurar el objeto con el nombre de lo que exporte.
+
+Puedo exportar como un objeto para encapsular ciertas funciones que no quiero exportar o simplemente no poner export por cada sentencia que quiero exportar. 
+Ejemplo: Sentencia por sentencia -> export const multiplicar | Como Objeto -> export { sumar, multiplicar }
+
+Tambien puedo exportar un objeto que dentro contenga funciones y acceder a ese objeto con el operador punto.
+export const obj = {
+    sumar : sumar,
+    multiplicar : multiplicar
+}
+
+Puedo combinar el export default y el export comun. Solo puede exisitir un export default.
+
+Hoisting
+
+https://developer.mozilla.org/es/docs/Glossary/Hoisting
+Hoisting significa levantar, elevar.
+
+Cuando el interprete del JS carga el JS automaticamente lo interpreta. Le hace un barrido. Puedo declarar una funcion debajo de la llamada y esta se ejecutra. Ahora si declaro un valor a una variable y la invoco antes de la asignación va a ser undefined en caso de declarar con var o un error si utilizo let.
+No es lo mismo una funcion expresada que una funcion declarada.
+Por el hosting el export default nunca lo poedemos hacer en una declaracion de una funcion asignada a una variable o a una declaracion con asignacion de una variable.
+
+Clousures
+
+https://developer.mozilla.org/es/docs/Web/JavaScript/Closures
+https://developer.mozilla.org/es/docs/Glossary/IIFE
+
+Las funciones autoinvocadas (Inmidatly Invoked Function Execute 'IIFE') las puedo declarar on the fly encerrandole entre parentesis y luego agregarle otro par al final. Esto me permite utilizar funciones retornadas dentro de esta funcion invocada y no tener que exportar un modulo. Funciona siempre y cuando se cargue primero esa funcion autoinvocada.
+Esta era una vieja manera de utilizarlo antes de los modulos. Los closures son "azucar sintactico" para los modulos.
+Estas closures van a almacenar en variables otras funciones retornadas. Permitiendo su ejecucion una vez cargada y pudiendo ser utilizados en otros archivos que se carguen luego.

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio lista y tabla dinamica</title>
+    <script src="./scripts/app.js" defer type="module"></script>
+    <link rel="stylesheet" href="./styles/estilos.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>CrudEmpleados</h1>
+        </header>
+        <main class="main">
+            <section class="form-container">
+                <h2>Alta Empleado</h2>
+                <form>
+                    <input type="text" name="nombre" placeholder="Nombre" autocomplete="off">
+                    <input type="number" name="edad" placeholder="Edad" min="18" max="65">
+                    <input type="email" name="email" placeholder="Email" autocomplete="off">
+                    <fieldset>
+                        <legend>Genero</legend>
+                        <input type="radio" name="sexo" value="masculino">Masculino <br>
+                        <input type="radio" name="sexo" value="femenino">Femenino <br>
+                    </fieldset>
+                    <input type="hidden" name="id" value="">
+                    <input type="submit" value="Alta Persona">
+                </form>
+            </section>
+
+            <section class="tabla-container">
+            </section>
+
+            <section class="lista-container">
+            </section>
+        </main>
+    </div>
+</body>
+</html>

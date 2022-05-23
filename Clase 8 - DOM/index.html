@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM - Document Object Model</title>
+    <style>
+        .cards {
+            display: inline-block;
+        }
+        .card {
+            background-color: black;
+        }
+        .card figcaption {
+            color: greenyellow;
+            padding: 10px;
+        }
+
+        .rojo {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1 data-description="Este es el titulo principal">Titulo Principal</h1>
+
+    <ul id="frutas">
+        <li>Manzanas</li>
+        <li>Bananas</li>
+        <li>Peras</li>
+        <li>Naranjas</li>
+        <li>Melones</li>
+    </ul>
+
+    <input type="text" name="nombre" placeholder="Ingrese nombre">
+
+    <div id="miDiv"></div>
+
+    <p id="p1"></p>
+
+    <div id="texto">
+        <p id="parrafo1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, impedit amet. Maxime cum soluta repellat distinctio animi minus, voluptates unde dolor omnis saepe? Neque rerum explicabo porro optio et quae!</p>
+        <p>Quaerat, quasi? Tenetur <strong>adipisci</strong>, dolorem quae sapiente qui quisquam placeat perspiciatis accusamus voluptatum a architecto molestiae quis aliquid iure debitis ad assumenda odit est! Consectetur officia laudantium saepe pariatur quas!</p>
+        <p>Maxime explicabo deserunt nobis, ad consequuntur, quibusdam enim, dolor dignissimos ratione eligendi officiis nemo placeat consectetur expedita excepturi id perspiciatis. Repellendus fugit repellat quis, eaque aperiam vitae dolorem! Consequuntur, ea?</p>
+    </div>
+    <section class="cards">
+        <figure class="card">
+            <img src="https://placeimg.com/300/300/tech" alt="Imagen tecnologia">
+            <figcaption>Tecnologia</figcaption>
+        </figure>
+        <figure class="card">
+            <img src="https://placeimg.com/300/300/animals" alt="Imagen animales">
+            <figcaption>Animales</figcaption>
+        </figure>
+        <figure class="card">
+            <img src="https://placeimg.com/300/300/people" alt="Imagen personas">
+            <figcaption>Personas</figcaption>
+        </figure>
+        <figure class="card">
+            <img src="https://placeimg.com/300/300/nature" alt="Imagen naturaleza">
+            <figcaption>Naturaleza</figcaption>
+        </figure>
+    </section>
+    <a href="#">Google</a>
+
+    <script src="./app.js"></script>
+</body>
+</html>

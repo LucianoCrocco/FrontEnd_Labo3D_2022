@@ -1,0 +1,66 @@
+ul li {
+    text-transform: capitalize;
+}
+
+td, th{
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.colorPar {
+    background-color: darkcyan;
+}
+.colorImpar {
+    background-color: orange;
+}
+
+.cabecera{
+    background-color: cornflowerblue;
+    color: brown;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+tr.colorPar:hover,
+tr.colorImpar:hover {
+    background-color: darkblue;
+    color: yellowgreen;
+}
+
+.pointer {
+    cursor: pointer;
+    user-select: none;
+}
+
+.container {
+    background-color: darkolivegreen;
+    margin: 0px auto;
+    padding-top: 10px;
+    width: 90%;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main {
+    align-items: center;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+
+.tabla-container{
+    width: 100%;
+}
+
+.form-container {
+    margin-bottom: 20px;
+}

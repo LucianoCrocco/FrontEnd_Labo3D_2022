@@ -1,0 +1,41 @@
+DOM - Document Object Model
+
+https://developer.mozilla.org/es/docs/Glossary/DOM
+https://developer.mozilla.org/es/docs/Glossary/API
+https://developer.mozilla.org/es/docs/Web/API/Node/nodeType
+https://developer.mozilla.org/es/docs/Web/HTML/Element/figure
+https://pointjupiter.com/what-noopener-noreferrer-nofollow-explained/
+https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset
+
+Una API es un Application Program Interface que son un conjunto de funciones que exponen una manera de comportarse para la interración con software.
+Existen API fetch, Eventos, geolocalización, timers, etc.
+
+Todas estas API's no pertencen a JavaScript como tal, son funciones del navegador. El API DOM es un conjunto de funciones que tiene el navegador que nos permite interactuar con los elementos renderizados en pantalla
+El DOM es otra cosa, es como ve JS a la página web renderizada. En memoria son objetos nodos guardado que generan un arbol jerarquico.
+El nodo pricipal es HTML y despues tiene jerarquias que se ramifican.
+Las etiquetas de apertura y cierre tienen nodos dentro que pueden ser de texto u otros nodos.
+Todas las propiedades/funciones del DOM esta dentro del objeto document. Y dentro vamos a tener metodos.
+DOM Traversing nos permite movernos a traves de los nodos. Vamos a poder seleccionar, crear, editar, borrar, actulizar, etc. Los elementos renderizados en pantalla.
+
+Un HTMLCollection es un un objeto indexado, no es un array. 
+NodeList si se puede comportar como un array.
+
+document.getElementsByClassName, getElementsByTagName, getElementsByName fueron "deprecados". Hoy se utiliza el QuerySelector. Tambien nos devuelve un NodeList en vez de un HTMLCollection
+document.querySelector('#frutas');
+document.querySelectorAll('.card');
+document.querySelectorAll("p");
+De esta manera se engloban 3 en 1. Por ID, clase y nombre respectivamente. Tambien puedo hacer al nomeclatura combinando como en CSS
+Ejemplo: document.querySelectorAll("nav a");
+
+El atributo rel="noopener" le estamos diciendo al navegador que no se pueda abrir esa ventana con codigo JS como el window.
+
+Puedo colocarle al HTML atributos personalizados. Conocidos como Data Attributes. La nomenclatura es data-"NOMBRE"="VALOR" dentro de la etiqueta HTML.
+En el dataSet se va a guardar ese atributo personalizado. 
+Desde JS puedo asignarle $HTMLELEMENT.dataset."NOMBRE" = "VALOR" o con la propiedad setAttribute $HTMLELEMENT.setAttribute("NOMBRE", "VALOR")
+Puedo hacer un getter con el dataset.NOMBRE. El nombre es el que tiene despues del guion de "data-". Ejemplo: e.dataset.id. Accedo al dataset id del elemento e. Otra manera es con getAttribute $HTMLELEMENT.getAttribute("NOMBRE-VALOR")
+
+Los nodos pueden ser indexados.
+childNodes me trae nodos texto y nodos elemento.
+children/element me trae solo los nodos elemento.
+
+tarea: Crear una funcion que reciba un array de dias. Crear una lista ordenada y crear un elemento li por cada elemento del array. Tambien crear una tabla.

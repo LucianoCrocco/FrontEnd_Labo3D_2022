@@ -1,0 +1,1 @@
+En los formularios los radio button son autoexcluyentes y deben tener el mismo name.
