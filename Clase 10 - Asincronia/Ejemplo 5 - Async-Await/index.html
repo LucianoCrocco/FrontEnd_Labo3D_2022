@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones Async-Await</title>
+</head>
+<body>
+    <h1>Funciones Async-Await</h1>
+    <script>
+        
+        function sumar (a, b){
+            return new Promise((res, rej) => {
+                let suma;
+                setTimeout(()=>{
+                    if(typeof a !== "number" || typeof b !== "number"){
+                        rej("Parametros invalidos para la suma")
+                    } else {
+                        suma = a+b;
+                        console.log("La suma es: " + suma);
+                        res(suma);
+                    }
+                }, 2000);
+            })
+        }
+
+        function restar (a, b){
+            return new Promise((res, rej) => {
+                let resta;
+                setTimeout(()=>{
+                    if(typeof a !== "number" || typeof b !== "number"){
+                        rej("Parametros invalidos para la resta")
+                    } else {
+                        resta = a-b;
+                        console.log("La resta es: " + resta);
+                        res(resta);
+                    }
+                }, 2000);
+            })
+        }
+
+        function multiplicar (a, b){
+            return new Promise((res, rej) => {
+                let producto;
+                setTimeout(()=>{
+                    if(typeof a !== "number" || typeof b !== "number"){
+                        rej("Parametros invalidos para la multiplicacion")
+                    } else {
+                        producto = a*b;
+                        console.log("El producto es: " + producto);
+                        res(producto);
+                    }
+                }, 2000);
+            })
+        }
+
+        function cuadrado (a){
+            return new Promise((res, rej) => {
+                let cuadrado;
+                setTimeout(()=>{
+                    if(typeof a !== "number"){
+                        rej("Parametros invalidos para la cuadratica")
+                    } else {
+                        cuadrado = a*a;
+                        console.log("La cuadratica es: " + cuadrado);
+                        res(cuadrado);
+                    }
+                }, 2000);
+            })
+        }
+        
+        function informar (resultado){
+            console.log("El resultado es: " + resultado);
+        }
+
+        //Sumar 8+5, al resultado calcular el cuadrado, al cuadrado multiplcarlo por diez, y al resultado restarle 40 e informar por consola el resultado final.
+        console.log("Incio");
+        
+        async function calcular(a, b){
+            try {
+                let suma = await sumar(a,b)
+                let cuad = await cuadrado(suma)
+                let prod = await multiplicar(cuad, 10)
+                let resta = await restar(prod, 40);
+                informar(resta);
+            } catch(error){
+                console.error(eror);
+            }
+        }
+        calcular(9,5);
+
+        sumar(1,"2").then(res => informar(res)).catch(err => console.error(err));
+
+        console.log("Fin");
+
+    </script>
+</body>
+</html>

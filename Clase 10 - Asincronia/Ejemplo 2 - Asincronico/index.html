@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manejo Asincronico</title>
+</head>
+<body>
+    <h1>Codigo asincronico y no bloqueante</h1>
+    <script>
+        function sumar (a, b){
+            let suma;
+            setTimeout(()=>{
+                suma = a+b;
+                console.log("La suma es: " + suma);
+            }, 2000);
+            return suma;
+        }
+
+        function restar (a, b){
+            let resta;
+            setTimeout(()=>{
+                resta = a-b;
+                console.log("La resta es: " + resta);
+            }, 1000);
+            return resta;
+        }
+
+        function multiplicar (a, b){
+            let producto;
+            setTimeout(()=>{
+                producto = a*b;
+                console.log("El producto es: " + producto);
+            }, 1000);
+            return producto;
+        }
+
+        function cuadrado (a){
+            let cuadrado;
+            setTimeout(()=>{
+                cuadrado = a*a;
+                console.log("La cuadrado es: " + cuadrado);
+            }, 3000);
+            return cuadrado;
+        }
+        
+        function informar (resultado){
+            console.log("El resultado es:  " + resultado);
+        }
+
+        //Sumar 8+5, al resultado calcular el cuadrado, al cuadrado multiplcarlo por diez, y al resultado restarle 40 e informar por consola el resultado final.
+        //informar(restar(multiplicar(cuadrado(sumar(8, 5)),10),40));
+        console.log("Incio");
+        let suma = sumar(8,5);
+        let cuad = cuadrado(suma);
+        let producto = multiplicar(cuad, 10);
+        let resta = restar(producto, 40);
+        informar(resta);
+        console.log("Fin");
+    </script>
+</body>
+</html>

@@ -57,12 +57,13 @@ if("") -> falsy. | Todo lo que sea 0. Cadenas vacias, null, undefined son falsy 
 
 
 Objetos
+https://twitter.com/midudev/status/1529825742632067073
 const obj = new Object();
 const obj = {};
 A los objetos en JS puedo agregarle propiedades fuera de su constructor con el operador '.'.
 
 Copiar un objeto a otra referencia: const p3 = Object.assign({}, p1) o const p3 = {}; Object.assign(p3, p1); Assign recorre las key:value y las asigna al target. 
-El spreadOperator cumple la misma funcion.
+El spreadOperator cumple la misma funcion. Al copiar POR REFERENCIA si uno se modifica el otro también.
 
 La nomencaltura de corchetes me permitie acceder a un valor a través de una key.
 obj["KEY"];

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promesas</title>
+</head>
+<body>
+    <h1>Promesas</h1>
+    <script>
+        
+        function sumar (a, b){
+            return new Promise((res, rej) => {
+                let suma;
+                setTimeout(()=>{
+                    if(typeof a !== "number" || typeof b !== "number"){
+                        rej("Parametros invalidos para la suma")
+                    } else {
+                        suma = a+b;
+                        console.log("La suma es: " + suma);
+                        res(suma);
+                    }
+                }, 2000);
+            })
+        }
+
+        function restar (a, b){
+            return new Promise((res, rej) => {
+                let resta;
+                setTimeout(()=>{
+                    if(typeof a !== "number" || typeof b !== "number"){
+                        rej("Parametros invalidos para la resta")
+                    } else {
+                        resta = a-b;
+                        console.log("La resta es: " + resta);
+                        res(resta);
+                    }
+                }, 2000);
+            })
+        }
+
+        function multiplicar (a, b){
+            return new Promise((res, rej) => {
+                let producto;
+                setTimeout(()=>{
+                    if(typeof a !== "number" || typeof b !== "number"){
+                        rej("Parametros invalidos para la multiplicacion")
+                    } else {
+                        producto = a*b;
+                        console.log("El producto es: " + producto);
+                        res(producto);
+                    }
+                }, 2000);
+            })
+        }
+
+        function cuadrado (a){
+            return new Promise((res, rej) => {
+                let cuadrado;
+                setTimeout(()=>{
+                    if(typeof a !== "number"){
+                        rej("Parametros invalidos para la cuadratica")
+                    } else {
+                        cuadrado = a*a;
+                        console.log("La cuadratica es: " + cuadrado);
+                        res(cuadrado);
+                    }
+                }, 2000);
+            })
+        }
+        
+        function informar (resultado){
+            console.log("El resultado es: " + resultado);
+        }
+
+        //Sumar 8+5, al resultado calcular el cuadrado, al cuadrado multiplcarlo por diez, y al resultado restarle 40 e informar por consola el resultado final.
+        console.log("Incio");
+        sumar(8,5)
+        .then((suma) => cuadrado(suma))
+        .then((cuad) =>{
+            if(cuad < 170){
+                return multiplicar(cuad, 10)
+            } else {
+                //return Error("Se paso de 170") -> NO, no tiene nada que ver con el try-catch.
+                return Promise.reject("Se paso de 170");
+            }
+        })
+        .then((prod) => restar(prod, 40))
+        .then(res => informar(res))
+        .catch(err => console.error(err));
+        //Promise Hell
+        console.log("Fin");
+        
+        function esPositivo(valor){
+            return new Promise((resolve, reject) => {
+                setTimeout(() =>{
+                    if(typeof valor !== 'number'){
+                        reject("Eso no es un numero");
+                    }
+                    let rta = "Es positivo"
+                    if(valor < 0){
+                        rta = "Es negativo"
+                    } 
+                    resolve(rta);
+                }, 3000)               
+            });
+        }
+        esPositivo(2)
+        .then((rta)=> console.log(rta))
+        .catch((rta) => console.log(rta));
+
+        esPositivo("2")
+        .then((rta)=> console.log(rta))
+        .catch((rta) => console.log(rta));
+
+    </script>
+</body>
+</html>

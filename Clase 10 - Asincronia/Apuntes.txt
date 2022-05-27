@@ -1,0 +1,54 @@
+Ver el video para completar el ejercicio de la Clase 9.
+La idea del asincronismo es lograr que no se trabe el stack.
+Los threads de C# implementan paralelismo, JS implementa concuerrencia.
+El sincronico porque por cada instrucción espera a la anterior y es bloqueante porque espera a la finalizacion de la anterior. Lo vimos en la Clase 2
+
+La promesa un prototype, un state (puede ser pending, rejected o resolve) y un promise result que sera lo que le pasemos a los callbacks resolve y rejected.
+Las promesas estan pendientes hasta que las manejemos, es decir, hacemos la promesa y esta en nostros cumplirla ya sea para bien o para mal o dejarla pendiente.
+
+Puedo romper en un then y filtrar lo que me devuelva otra promesa con la siguiente sintaxis:
+    if(cuad < 170){
+        return multiplicar(cuad, 10)
+    } else {
+        //return Error("Se paso de 170")
+        return Promise.reject("Se paso de 170");
+    }
+
+La idea de las funciones asincronas es pasar en limpio las promesas, son promesas encapsuladas. El Await espera la resolucion de la promeas y el async espera ese wait termine. 
+Si o si se utilizan funciones try-catch.
+No utilizo la sintaxis sumar(1,2).then(res => informar(res)); porque su funcion es dejar de lado el .then.
+Ejemplo funcion asincrona:
+async function calcular(a, b){
+    try {
+        let suma = await sumar(a,b)
+        let cuad = await cuadrado(suma)
+        let prod = await multiplicar(cuad, 10)
+        let resta = await restar(prod, 40);
+        informar(resta);
+    } catch(error){
+        console.error(eror);
+    }
+}
+
+Documentación curso de Udemy
+Una promesa básicamente es código que tiene varios estados, así que vamos a poder lanzar una petición para procesar un código. En dado caso que la promesa se resuelta correctamente se resuelve el codigo y en caso que haya tenido problemas se manda a llamar el error.
+
+Por lo tanto podemos decir que existen dos caminos: Un en el que se ejecuto el codigo correctamente y se resolvio el mismo y otro en el cual falla el codigo y se manda a llamar el error en el catch.
+
+Mientras la promesa no haya terminado de ejecutar el codigo se encuentra en estado de pendiente. Una vez ejecutado el codigo si se puede resolver utilizamos la funcion .then(), en caso de que no se haya podido procesar utilizaremos la funcion .catch().
+
+Una Promise (promesa en castellano) es un objeto que representa la terminación o el fracaso de una operación asíncrona. Dado que la mayoría de las personas consumen promises ya creadas, esta guía explicará primero cómo consumirlas, y luego cómo crearlas.
+
+La palabra async nos va a permitir el uso de promesas. Al poner la palabra antes de la definición de un método significa que esta obligado a regresar una promesa.
+
+La palabra reservada await solo puede utilizarse dentro de una función aysnc.
+
+Una promesa se crea con el constructor de la clase Promise(FUNCION); Dentro de los parentesis recibe como argumentos un puntero a función o una función anonima. Ambas funciones deben tener un parametro de resuelto y otro de rechazado, ambos parametros son callbacks.
+
+Ejemplo: const promise = new Promise((resolve,reject) => {})
+
+Una vez resuelta la función se devuelve el objeto creado como Promesa(). Nos devuelve el estado fulfilled si pudo terminar su ejecución
+
+Para leer el contenido de las promesas tenemos los metodos .then() si el retorno de la promesa fue resolve y .catch() si ocurrio algún error y retorno rejected. Ambas funciones reciben punteros a funcion o funciones anonimas
+
+Los catch funcionan para todos los then() que utilicemos. Los then() no hacen falta ser anidados.
