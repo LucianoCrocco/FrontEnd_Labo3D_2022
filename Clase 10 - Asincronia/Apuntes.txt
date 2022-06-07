@@ -14,7 +14,7 @@ Puedo romper en un then y filtrar lo que me devuelva otra promesa con la siguien
         return Promise.reject("Se paso de 170");
     }
 
-La idea de las funciones asincronas es pasar en limpio las promesas, son promesas encapsuladas. El Await espera la resolucion de la promeas y el async espera ese wait termine. 
+La idea de las funciones asincronas es pasar en limpio las promesas, son promesas encapsuladas. El Await espera la resolucion de la promeas y el async espera ese await termine. 
 Si o si se utilizan funciones try-catch.
 No utilizo la sintaxis sumar(1,2).then(res => informar(res)); porque su funcion es dejar de lado el .then.
 Ejemplo funcion asincrona:

@@ -1,0 +1,58 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    height: 95vh;
+    margin: auto;
+    width: 80vw;
+}
+
+#header__titulo-principal{ 
+    margin: 10px auto;
+    text-align: center;
+}
+
+main {
+    margin-top: 30px;
+}
+
+main > fieldset > legend {
+    margin-left: 10px;
+    text-transform: capitalize;
+}
+
+#form-principal input,
+#form-principal label{
+    display: block;
+    margin: 10px;
+    width: 97.5% ;
+}
+#form-principal label{
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#form-principal input[type="text"]{
+    background-color: #eee;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#buttons {
+    margin: 10px auto;
+}
+
+td, th{
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+table {
+    border-collapse: collapse;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+}

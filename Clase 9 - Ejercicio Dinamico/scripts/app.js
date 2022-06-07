@@ -22,8 +22,8 @@ window.addEventListener("click", e => {
 
 /* Formulario */
 
-//const empleados = localStorage.getItem("empleados") ? JSON.parse(localStorage.getItem("empleados")) : [];
-const empleadosLista = localStorage.getItem("empleados") || [];
+const empleadosLista = localStorage.getItem("empleados") ? JSON.parse(localStorage.getItem("empleados")) : [];
+//const empleadosLista = localStorage.getItem("empleados") || [];
 const $frmEmpleado = document.forms[0];
 $frmEmpleado.addEventListener("submit", e => {
     e.preventDefault();
