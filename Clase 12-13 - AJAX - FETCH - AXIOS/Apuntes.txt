@@ -1,0 +1,66 @@
+Como funciona el versionado
+Version MAYOR.MINOR.PATCH -> 1.0.0 se inicializo.
+Si se corrigo un bug incremento el patch
+Cuando le agrego una nueva funcionalidad incremento el minor
+Cuando la nueva version por algun motivo no es perfectamente compatible con la version anterior aumento el MAYOR. Ya sea porque utiliza una nueva tecnologia, cambio considerablemente el proyecto, etc.
+
+npx es cuando corremos un paquete sin instalarlo en la maquina, se descarga y se ejecuta on the fly.
+
+AJAX
+https://developer.mozilla.org/es/docs/Web/Guide/AJAX
+https://developer.mozilla.org/es/docs/Web/API/XMLHttpRequest
+https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/readyState
+
+Fetch
+https://developer.mozilla.org/es/docs/Web/API/Fetch_API/Using_Fetch
+fetch es nativa de los navegadores.
+
+CDN: Content Delivery Network. Son servidores que tienen codigo JavaScript 
+
+Se necesita defer cuando vamos a hacer un getElementById o necesitamos una referencia de la interfaz
+
+AJAX al no trabajar con promesas no puede ser asincrona, puedo armarme mi propio "axios" y devolver promesas dentro de un AJAX para poder trabajar de manera asincrona.
+Fetch siempre tiene un status fulfilled, nosotros tenemos que forzar el try-catch con el throw. Siempre la promesa nos va a devolver un status y va a estar fulfilled, depende de nosotros chequear la informacion y hacer el throw si no es lo que esperamos.
+Axios si bien esta basado en AJAX es asincrona porque internamente maneja promesas, en el app.js de esta clase hicimos un AJAX que internamente maneja promesas para simular el comportamiento de axios.
+
+https://developer.mozilla.org/es/docs/Web/HTTP/Basics_of_HTTP/MIME_types
+https://developer.mozilla.org/es/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
+Para hacer un post en AJAX tengo que hacer el send del objeto en texto (un JSON.stringify) y tengo que especificar la cabecera para los MIME types. Es para que el backend sepa como lo tiene que trabajar en el body a ese elemento y despues la respuesta sea reciproca. Luego el tratamiento interno es igual que el GET.
+Ejemplo:
+xhr.open("POST", url);
+xhr.setRequestHeader("Content-Type", "application/json;charset=utf8")
+xhr.send(JSON.stringify(newPersona)); // Se lo mando como texto
+
+Por default fetch hace un GET. Para hacer un POST fetch recibe un segundo parametro que es un objeto de opciones, en esas opciones podemos poner un metodo, headers, body, etc. Luego el tratamiento interno es igual que el GET.
+Ejemplo:
+    const options = {
+        method : "POST",
+        headers : {
+            "Content-Type" : "application/json"
+        },
+        body : JSON.stringify(newPersona)
+    }
+fetch(url, options).then(OPCIONES).catch(OPCIONES)
+
+Axios funciona similar a Fetch, pero a diferencia de fetch no tiene body tiene data.
+Ejemplo: Luego el tratamiento interno es igual que el GET. Es posible omitir el metodo ya que de por si le estoy diciendo que estoy haciendo un axios.post.
+const options = {
+    method : "POST",
+    headers : {
+        "Content-Type" : "application/json"
+    },
+    data : JSON.stringify(newPersona)
+}
+axios.post(url, options)
+axios.post(url, options).then(OPCIONES).catch(OPCIONES)
+
+Para hacer un delete es lo mismo que el GET. Obvimente depende del servidor como pegarle con la URL pero el tratamiento interno es igual que el GET, solamenete que hacemos un open con DELETE
+xhr.open("DELETE", `${url}/${id}`);
+xhr.send();
+
+PUT en AJAX es muy parecido al POST, solamente que le pasamos el objeto con el ID y por la URL tambien especificamos el ID a cambiar ya que nos lo pide el servidor.
+xhr.open("PUT", `${url}/${updatedPersona.id}`); -> Crear el objeto updateado obtengo el ID o lo hardcodeo para luego pasarselo a la URL
+xhr.setRequestHeader("Content-Type", "application/json")
+xhr.send(JSON.stringify(updatedPersona));
+
+En general tanto el PUT como el DELETE funcionan parecido en Axios y Fetch con el GET y POST. Parecido a lo visto con AJAX solo que con sus caracteristicas.

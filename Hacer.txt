@@ -1,3 +1,6 @@
 Ver clase 1 y 2. Opengraph, esquima.png, etc. Reveer la clase y añadirlo a los apuntes
 
 Cada vez que refrescamos la tabla, cada vez que al array le hacemos un ABM se refresca la tabla. Como se modifica al array le volvemos a pasar el array a la funcion que construye la tabla. En ese periodo que se refresca la tabla es agregar un spinner. https://icons8.com/preloaders/ - Tiene que ver con el localStorage
+
+21/06 Recuperatorio Parcial -> Mismo tema traido hecho.
+28/06 Segundo Parcial -> Sobre los temas del primero se agregan cosas.

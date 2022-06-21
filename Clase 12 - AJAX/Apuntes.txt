@@ -1,6 +1,0 @@
-Como funciona el versionado
-Version MAYOR.MINOR.PATCH -> 1.0.0 se inicializo.
-Si se corrigo un bug incremento el patch
-Cuando le agrego una nueva funcionalidad incremento el minor
-Cuando la nueva version por algun motivo no es perfectamente compatible con la version anterior aumento el MAYOR. Ya sea porque utiliza una nueva tecnologia, cambio considerablemente el proyecto, etc.
-
