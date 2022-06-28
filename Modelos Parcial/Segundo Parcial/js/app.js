@@ -14,27 +14,25 @@ let id = null;
 //JSON server URL
 const JsonServerURL = "http://localhost:3001/anuncios";
 
-
-/* Lista del LocalStorage y generacion de la tabla */
-const autosLista = localStorage.getItem("autos") ? JSON.parse(localStorage.getItem("autos")) : [];
+/* Generacion de la tabla */
 primeraCarga();
 
 /* Boton Guardar, Modificar */
-containerBotones.addEventListener("click", (e) => {
+containerBotones.addEventListener("click", async (e) => {
     try {
         switch(e.target.textContent){
             case "Guardar":
-                altaLista();
+                await altaLista();
                 break;
             case "Modificar":
-                modificarLista();
+                await modificarLista();
                 break;
-            /*case "Cancelar":
+            case "Cancelar":
                 cancelarEdicionAuto();
                 break;
             case "Eliminar":
-                eliminarAuto();
-                break;*/
+                await eliminarAuto();
+                break;
         }
     } catch(err){
         if(err instanceof Promise){
@@ -48,55 +46,50 @@ containerBotones.addEventListener("click", (e) => {
 /* Actualizacion de la tabla, creacion de la misma */
 async function actualizarTabla() {
     try {
-        // funcionesScript.cargarSpinner();
-        btnPrincipal.setAttribute("disabled", true);
+        //btnPrincipal.setAttribute("disabled", true);
+        funcionesScript.deshabilitarBotonPrincipal();
     
         const res = await fetch(JsonServerURL);
 
         if(!res.ok){
-            //funcionesScript.eliminarSpinner();
             throw Promise.reject(res);
         }
-
-
         const lista = await res.json();
-        
-        if(lista.length > 0){
-            const table = crearTabla(lista);
     
-            if(containerTabla.children.length > 0){
-                containerTabla.removeChild(containerTabla.children[0]);
-            }
-        
-            //Eliminar si continua con setTimout
-            containerTabla.appendChild(table);
-            /*setTimeout(() => {
-                containerTabla.appendChild(table);
-                btnPrincipal.removeAttribute("disabled");
-                funcionesScript.eliminarSpinner();
-            }, 3000)*/
+        if(lista.length > 0){
+            eliminarTablaDOM();
+            crearTablaDOM(lista);
         } else {
             if(containerTabla.children.length > 0){
                 containerTabla.removeChild(containerTabla.children[0]);
             }
-            /*setTimeout(() => {
-                funcionesScript.eliminarSpinner();
-            }, 3000)*/
+            eliminarTablaDOM();
         }
     } catch(err){
-        //funcionesScript.eliminarSpinner();
         throw err;
     } finally {
-        //Si puedo simluar latencia con el servidor eliminar los timeout y agregar eliminarSpinner aca y btnRemoveAttribute.
-        // funcionesScript.eliminarSpinner();
-        btnPrincipal.removeAttribute("disabled");
+        // btnPrincipal.removeAttribute("disabled");
+        funcionesScript.habilitarBotonPrincipal();
+    }
+}
+
+function crearTablaDOM(lista){
+    const table = crearTabla(lista);
+    containerTabla.appendChild(table);
+}
+
+function eliminarTablaDOM(){
+    if(containerTabla.children.length > 0){
+        containerTabla.removeChild(containerTabla.children[0]);
     }
 }
 
 /* Alta Auto en la lista y actualizacion tabla*/
 async function altaLista() {
     try {
-        // funcionesScript.cargarSpinner();
+        eliminarTablaDOM();
+        funcionesScript.deshabilitarBotonPrincipal();
+        funcionesScript.cargarSpinner();
         let nuevoAuto = new Anuncio_Auto(Date.now(), frm.titulo.value, frm.transaccion.value, frm.descripcion.value, frm.precio.value, frm.puertas.value, frm.kilometros.value, frm.potencia.value); 
 
         const res = await fetch(JsonServerURL, {
@@ -108,47 +101,23 @@ async function altaLista() {
         if(!res.ok){
             throw Promise.reject(res);
         }
-
-        // funcionesScript.eliminarSpinner();
-        actualizarTabla();
-        //localStorage.setItem("autos", JSON.stringify(autosLista)); 
-    
-        limpiarCamposFrm();
     } catch(err) {
         throw err;
     } finally {
-
-    }
-
-    /*
-    let nuevoAuto = new Anuncio_Auto(Date.now(), frm.titulo.value, frm.transaccion.value, frm.descripcion.value, frm.precio.value, frm.puertas.value, frm.kilometros.value, frm.potencia.value); 
-    fetch(JsonServerURL, {
-        method : "POST",
-        headers : {"Content-Type" : "application/json"},
-        body : JSON.stringify(nuevoAuto)
-    })
-    .then(res => {
-        if(!res.ok){
-            return Promise.reject(res);
-        }
-        return res;
-    })
-    .then(res => {
-        actualizarTabla();
+        await actualizarTabla();
+        funcionesScript.eliminarSpinner();
         limpiarCamposFrm();
-    })
-    .catch(err => {
-        alert(err);
-    })*/
-
-
-    //localStorage.setItem("autos", JSON.stringify(autosLista)); 
-
+    }
 }
 
 /* Modificar Auto en la lista y actualizacion tabla */
 async function modificarLista(){
     try {
+        eliminarTablaDOM();
+        funcionesScript.deshabilitarBotonPrincipal();
+        funcionesScript.eliminarBotonCancelar();
+        funcionesScript.eliminarBotonEliminar();
+        funcionesScript.cargarSpinner();
         let autoEditado = new Anuncio_Auto(Date.now(), frm.titulo.value, frm.transaccion.value, frm.descripcion.value, frm.precio.value, frm.puertas.value, frm.kilometros.value, frm.potencia.value); 
 
         const res = await fetch(`${JsonServerURL}/${id}`, {
@@ -160,21 +129,18 @@ async function modificarLista(){
         if(!res.ok){
             throw Promise.reject(res);
         }
-        //autosLista[id] = autoEditado;
-        
-        await actualizarTabla();
-        //localStorage.setItem("autos", JSON.stringify(autosLista)); 
     
-
     } catch(err) {
-        //err.catch(err => console.log(err))
-        //console.log(err)
         throw err;
-    }/*finally {
+    }
+    finally {
         id = null;
         limpiarCamposFrm();
         btnPrincipal.childNodes[1].textContent = "Guardar"
-    }*/
+        await actualizarTabla();
+        funcionesScript.eliminarSpinner();
+        limpiarCamposFrm();
+    }
 
 }
 
@@ -188,18 +154,34 @@ function cancelarEdicionAuto(){
 }
 
 /* Eliminar Auto*/
-function eliminarAuto(){
+async function eliminarAuto(){
     if(id){
-        autosLista.splice(id, 1);
+        try {
+            eliminarTablaDOM();
+            funcionesScript.eliminarBotonCancelar();
+            funcionesScript.eliminarBotonEliminar();
+            funcionesScript.deshabilitarBotonPrincipal();
+            btnPrincipal.childNodes[1].textContent = "Guardar";
 
-        id = null;
-        btnPrincipal.childNodes[1].textContent = "Guardar";
-        localStorage.setItem("autos", JSON.stringify(autosLista)); 
-        limpiarCamposFrm();
-
-        funcionesScript.eliminarBotonCancelar();
-        funcionesScript.eliminarBotonEliminar();
-        actualizarTabla(autosLista);
+            funcionesScript.cargarSpinner();    
+            const res = await fetch(`${JsonServerURL}/${id}`, {
+                method : "DELETE",
+                headers : {"Content-Type" : "application/json"}
+            })
+    
+            if(!res.ok){
+                throw Promise.reject(res);
+            }
+        
+        } catch(err) {
+            throw err;
+        }
+        finally {
+            id = null;
+            limpiarCamposFrm();
+            await actualizarTabla();
+            funcionesScript.eliminarSpinner(); 
+        }
     }
 }
 
@@ -238,9 +220,11 @@ containerTabla.addEventListener("click", (e) => {
     }
 })
 
+/* Primera carga */
 async function primeraCarga(){
     try {
         funcionesScript.cargarSpinner();
+        funcionesScript.deshabilitarBotonPrincipal();
         await actualizarTabla();
         funcionesScript.eliminarSpinner();
     } catch(err){

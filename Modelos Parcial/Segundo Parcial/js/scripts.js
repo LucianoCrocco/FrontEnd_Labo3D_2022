@@ -56,11 +56,24 @@ function eliminarBotonCancelar(){
     }
 }
 
+
+/* Deshabilita y habilita el boton principal */
+function habilitarBotonPrincipal(){
+    const btnPrincipal = document.getElementById("btnPrincipal");
+    btnPrincipal.removeAttribute("disabled");
+}
+function deshabilitarBotonPrincipal(){
+    const btnPrincipal = document.getElementById("btnPrincipal");
+    btnPrincipal.setAttribute("disabled", true);
+}
+
 export const funcionesScript = {
     cargarSpinner, 
     eliminarSpinner,
     crearBotonCancelar,
     crearBotonEliminar,
     eliminarBotonEliminar,
-    eliminarBotonCancelar
+    eliminarBotonCancelar,
+    habilitarBotonPrincipal,
+    deshabilitarBotonPrincipal
 };

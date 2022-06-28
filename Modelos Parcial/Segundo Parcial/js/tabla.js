@@ -30,7 +30,7 @@ function crearCuerpo(vec){
         Object.keys(element).forEach(key => {
             const $td = document.createElement("td");
             if(key === "id"){
-                $tr.dataset.id = index;
+                $tr.dataset.id = element[key];
             } else {
                 $td.textContent = element[key];
                 $tr.appendChild($td);
