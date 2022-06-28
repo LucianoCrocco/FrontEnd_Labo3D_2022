@@ -1,0 +1,16 @@
+{
+  "name": "server-segundo-parcial",
+  "version": "1.0.0",
+  "description": "Servidor Json-server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "npx json-server --watch -p 3001 db.json",
+    "server" : "json-server -w db.json -d2000 -p3001"
+  },
+  "author": "Luciano Crocco",
+  "license": "ISC", 
+  "dependencies": {
+    "json-server": "^0.17.0"
+  }
+}

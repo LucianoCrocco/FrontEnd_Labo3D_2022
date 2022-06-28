@@ -1,6 +1,6 @@
 const URL = "http://localhost:3001/personas";
 
-/* GET */
+
 const cargarSpinner = () => {
     const divSpinner = document.querySelector(".spinner");
     if(!divSpinner.hasChildNodes()){
@@ -18,6 +18,7 @@ const eliminarSpinner = () => {
     }   
 }
 
+/* GET */
 const getPersonasAjax = (url) => {
     const xhr = new XMLHttpRequest();
     xhr.addEventListener("readystatechange", () =>{

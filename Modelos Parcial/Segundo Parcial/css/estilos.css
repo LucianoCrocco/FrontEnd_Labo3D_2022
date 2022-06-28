@@ -1,0 +1,225 @@
+*{  
+    margin: 0px;
+    font-family: sans-serif, Arial, Helvetica;
+    padding: 0px;
+}
+body {
+    background-color: #eee;
+}
+
+.container{
+    overflow: hidden;
+    width: 100%;
+}
+
+.cabecera{
+    background-color: crimson;
+    font-size: 1.2rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+.centrar {
+    margin: 0px auto;
+    text-align: center;
+}
+
+.boton {
+    border: 0px;
+    color: white;
+    font-weight: bolder;
+    font-size: 20px;
+    margin: 20px 5px;
+    padding: 13px 30px;
+}
+
+.boton:nth-child(1){
+    margin-left: 0px;
+}
+
+/*HEADER*/
+#header {
+    background-color: #808cff;
+    height: 150px;
+}
+#navbar-header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+}
+#header img {
+    margin-left: 100px;
+    height: 100px;
+}
+#nav__lista-ordenada {
+    margin-right: 100px;
+    list-style: none;
+}
+#nav__lista-ordenada  li a{
+    color: white;
+    margin-right: 100px;
+    text-decoration: none;
+}
+
+#nav__lista-ordenada li {
+    margin-top: 16px;
+}
+
+/*MAIN*/
+.titulo-principal {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#encabezado {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#banner {
+    width: 100%;
+}
+#banner img {
+    width: 100vw;
+    height: 200px;
+}
+
+
+main {
+    margin-top: 30px;
+}
+    /*FORMULARIO*/
+main legend {
+    margin-left: 10px;
+    text-transform: capitalize;
+}
+
+main fieldset {
+    margin-top: 10px;
+}
+
+#form-section {
+    margin: 0px auto;
+    width: 50%;
+}
+
+#form-principal {
+    margin: 5px;
+}
+
+#form-principal input,
+#form-principal label{
+    display: block;
+    margin: 10px;
+    width: 95% ;
+}
+#form-principal img {
+    width: 20px;
+}
+#form-principal label{
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#form-principal input[type="text"]{
+    background-color: #eee;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.flex-radiobuttons{
+    align-items: center;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+
+.flex-inputs {
+    display: flex;
+}
+
+#botones-container {
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    width: fit-content;
+}
+
+#btnPrincipal {
+    background-color: green;
+    padding: 10px 10px;
+}
+#btnPrincipal img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+#btnCancelar {
+    background-color: coral;
+}
+
+#btnEliminar {
+    background-color: crimson;
+}
+
+/*FOOTER*/
+#footer {
+    align-items: center;
+    background-color: #808cff;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    height: 100px;
+}
+
+#navbar-footer ul li{
+    display: flex;
+    align-items: center;
+    flex-flow: row nowrap;
+}
+#navbar-footer ul{
+    display: flex;
+    flex-flow: row nowrap;
+    margin-left: 100px;
+    list-style: none;
+}
+#navbar-footer ul li a{
+    color: white;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+#footer > span {
+    color: white;
+    margin-right: 100px;
+}
+
+/*TABLA*/
+td, th{
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+table {
+    border-collapse: collapse;
+    max-width: 80%;
+    margin: 10px auto;
+    margin-bottom: 30px;
+    overflow-x: scroll;
+    width: 50%;
+}
+
+#tabla-container img {
+    display: block;
+    margin: 0px auto;
+    margin-bottom: 20px;
+    width: 5%;
+}
+
+tbody tr:hover{
+    background-color: rgb(79, 79, 207);
+    cursor: pointer;
+}

@@ -1,0 +1,14 @@
+{
+  "anuncios": [
+    {
+      "id": 1656394508673,
+      "titulo": "Ferrari",
+      "transaccion": "Venta",
+      "descripcion": "Testarosa",
+      "precio": "3000000",
+      "puertas": "3",
+      "kilometros": "0",
+      "potencia": "1"
+    }
+  ]
+}

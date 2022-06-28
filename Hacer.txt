@@ -4,3 +4,5 @@ Cada vez que refrescamos la tabla, cada vez que al array le hacemos un ABM se re
 
 21/06 Recuperatorio Parcial -> Mismo tema traido hecho.
 28/06 Segundo Parcial -> Sobre los temas del primero se agregan cosas.
+
+Consulta 2º parcial: ¿Podemos simular la latencia con el server en vez de con setTimeout?

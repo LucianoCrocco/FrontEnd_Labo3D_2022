@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primer parcial</title>
+    <link rel="stylesheet" href="./css/estilos.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+    <script src="./js/app.js" defer type="module"></script>
+</head>
+<body>
+
+    <div class="container">
+        <header id="header">
+            <nav id="navbar-header">
+                <img src="./assets/LOGO.png" alt="Logo auto" id="logo">
+                <ul id="nav__lista-ordenada">
+                    <li><a href="#">Nosotros</a></li>
+                    <li><a href="./public/principal.html">Anuncios</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </nav>
+        </header>
+    
+        <main id="main">
+            <section id="encabezado">
+                <h1 class="titulo-principal">Administración</h1>
+                <div id="banner">
+                    <img src="./assets/autos-usados.jpg" alt="Autos banner">
+                </div>
+            </section>
+            <section id="form-section">
+                <fieldset>
+                <legend>Información del anuncio</legend> 
+                    <form action="#" id="form-principal">
+                        <label for="titulo">Titulo:</label>
+                        <input type="text" name="titulo" placeholder="Titulo" required>
+                        
+                        <label for="transaccion">Transaccion:</label>
+                        <div class="flex-radiobuttons">
+                            <label>Venta</label>
+                            <input type="radio" name="transaccion" value="Venta" required>
+                            
+                            <label>Alquiler</label>   
+                            <input type="radio" name="transaccion" value="Alquiler" required>
+                        </div>
+                    
+                        <label for="descripcion">Descripcion:</label>
+                        <input type="text" placeholder="Descripcion" name="descripcion" required>
+                        
+                        <label for="precio">Precio:</label>
+                        <input type="number" placeholder="Precio" name="precio" step="0.01" min="0" required>
+    
+                        <div class="flex-inputs">
+                            <img src="./assets/PUERTAS.png" alt="Cantidad de puertas">
+                            <input type="number" min="3" max="8" placeholder="Puertas" name="puertas" required>
+    
+                            <img src="./assets/KILOMETROS.png" alt="Kilometraje">
+                            <input type="number" placeholder="KMs" name="kilometros" min="0" required>
+    
+                            <img src="./assets/MOTOR.jpg" alt="Tipo Motor">
+                            <input type="number" placeholder="Potencia" name="potencia" min="0" max="2000" required>
+                        </div>
+                        <div id="flex-checkbox">
+                            <label>GNC
+                                <input type="checkbox" name="gnc">
+                            </label>
+
+                            <label>Daños en la carroceria
+                                <input type="checkbox" name="danios">
+                            </label>
+                            
+                            <label>Papeles al dia
+                                <input type="checkbox" name="papeles">
+                            </label>
+
+                        </div>
+                        
+                    </form>
+                </fieldset>
+                <article id="botones-container">
+                    <button id="btnPrincipal" class="boton"><img src="./assets/GURDAR-ICON.jpg" alt="DISKET">Guardar</button>
+                </article>
+            </section>
+
+            <section id="tabla-container"></section>
+        </main>
+
+        <footer id="footer">
+            <nav id="navbar-footer">
+                <ul>
+                    <li><a href="#">Nosotros</a></li>
+                    <li><a href="#">Anuncios</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </nav>
+            <span>Todos los derechos reservados &copy;</span>
+        </footer>
+    </div>
+  
+
+</body>
+</html>

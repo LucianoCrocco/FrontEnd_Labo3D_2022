@@ -1,0 +1,2 @@
+json-server --watch -p 3001 db.json
+npx json-server --watch -p 3001 db.json

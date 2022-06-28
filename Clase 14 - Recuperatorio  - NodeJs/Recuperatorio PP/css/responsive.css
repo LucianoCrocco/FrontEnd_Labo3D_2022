@@ -1,0 +1,5 @@
+@media (max-width: 910px){
+    #banner img {
+        display: none;
+    }
+}
