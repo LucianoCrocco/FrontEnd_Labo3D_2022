@@ -226,12 +226,13 @@ async function primeraCarga(){
         funcionesScript.cargarSpinner();
         funcionesScript.deshabilitarBotonPrincipal();
         await actualizarTabla();
-        funcionesScript.eliminarSpinner();
     } catch(err){
         if(err instanceof Promise){
             err.catch(err => console.log(`${err.status} ${err.statusText}`)); 
         } else {
             alert(err);
         }
-    }    
+    } finally{
+        funcionesScript.eliminarSpinner();
+    }
 }
