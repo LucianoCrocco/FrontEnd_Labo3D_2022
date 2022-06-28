@@ -1,5 +1,6 @@
 export default function crearTabla(vec) {
     const table = document.createElement("table");
+    table.classList.add("table", "table-hover");
     table.appendChild(crearCabecera(vec[0]));
     table.appendChild(crearCuerpo(vec));
     return table;
@@ -9,7 +10,8 @@ function crearCabecera(elemento){
     const $thead = document.createElement("thead");
     const $tr = document.createElement("tr");
     $thead.appendChild($tr);
-    $tr.setAttribute("class", "cabecera");
+    $thead.classList.add("thead-dark")
+    //$tr.setAttribute("class", "cabecera");
 
     Object.keys(elemento).forEach(key => {
         if(key !== "id") {

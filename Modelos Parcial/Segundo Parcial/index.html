@@ -5,12 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Primer parcial</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/estilos.css">
     <script src="./js/app.js" defer type="module"></script>
 </head>
 <body>
 
-    <div class="container">
+    <div class="container-fluid">
         <header id="header">
             <nav id="navbar-header">
                 <img src="./assets/LOGO.png" alt="Logo auto" id="logo">
@@ -33,40 +34,40 @@
             <section id="form-section">
                 <fieldset>
                 <legend>Información del anuncio</legend> 
-                    <form action="#" id="form-principal">
+                    <form action="#" id="form-principal" class="from-group">
                         <label for="titulo">Titulo:</label>
-                        <input type="text" name="titulo" placeholder="Titulo">
+                        <input type="text" name="titulo" placeholder="Titulo" class="form-control">
                         
                         <label for="transaccion">Transaccion:</label>
                         <div class="flex-radiobuttons">
                             <label>Venta</label>
-                            <input type="radio" name="transaccion" value="Venta">
+                            <input type="radio" name="transaccion" value="Venta" >
                             
                             <label>Alquiler</label>   
-                            <input type="radio" name="transaccion" value="Alquiler">
+                            <input type="radio" name="transaccion" value="Alquiler" >
                             
                         </div>
                     
                         <label for="descripcion">Descripcion:</label>
-                        <input type="text" placeholder="Descripcion" name="descripcion">
+                        <input type="text" placeholder="Descripcion" name="descripcion" class="form-control"> 
                         
                         <label for="precio">Precio:</label>
-                        <input type="text" placeholder="Precio" name="precio">
+                        <input type="text" placeholder="Precio" name="precio" class="form-control">
     
                         <div class="flex-inputs">
                             <img src="./assets/PUERTAS.png" alt="Cantidad de puertas">
-                            <input type="number" min="3" max="8" placeholder="Puertas" name="puertas">
+                            <input type="number" min="3" max="8" placeholder="Puertas" name="puertas" class="form-control">
     
                             <img src="./assets/KILOMETROS.png" alt="Kilometraje">
-                            <input type="text" placeholder="KMs" name="kilometros">
+                            <input type="text" placeholder="KMs" name="kilometros" class="form-control">
     
                             <img src="./assets/MOTOR.jpg" alt="Tipo Motor">
-                            <input type="text" placeholder="Potencia" name="potencia">
+                            <input type="text" placeholder="Potencia" name="potencia" class="form-control">
                         </div>
                     </form>
                 </fieldset>
                 <article id="botones-container">
-                    <button id="btnPrincipal" class="boton"><img src="./assets/GURDAR-ICON.jpg" alt="DISKET">Guardar</button>
+                    <button id="btnPrincipal" class="btn btn-primary"><img src="./assets/GURDAR-ICON.jpg" alt="DISKET">Guardar</button>
                 </article>
             </section>
 

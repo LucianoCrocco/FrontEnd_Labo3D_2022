@@ -25,8 +25,12 @@ function eliminarSpinner(){
 function crearBotonEliminar(){
     const btnPrincipal = document.getElementById("btnPrincipal");
     const btnEliminar = document.createElement("button");
-    btnEliminar.setAttribute("class", "boton");
+    btnEliminar.setAttribute("class", "btn");
+    btnEliminar.classList.add("btn-danger")
+
+    btnEliminar.classList.add("boton")
     btnEliminar.setAttribute("id", "btnEliminar");
+
     btnEliminar.textContent = "Eliminar";
     
     btnPrincipal.insertAdjacentElement("afterend", btnEliminar);
@@ -35,7 +39,10 @@ function crearBotonEliminar(){
 function crearBotonCancelar(){
     const btnPrincipal = document.getElementById("btnPrincipal");
     const btnCancelar = document.createElement("button");
-    btnCancelar.setAttribute("class", "boton");
+    btnCancelar.setAttribute("class", "btn");
+    btnCancelar.classList.add("btn-warning")
+    btnCancelar.classList.add("boton")
+
     btnCancelar.setAttribute("id", "btnCancelar");
     btnCancelar.textContent = "Cancelar";
     
